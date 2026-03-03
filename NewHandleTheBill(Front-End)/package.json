@@ -1,0 +1,43 @@
+{
+  "name": "handle_the_bill_ele",
+  "version": "1.0.0",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "electron-builder"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "账单比对工具",
+  "devDependencies": {
+    "electron": "^40.6.1",
+    "electron-builder": "^25.0.5"
+  },
+  "build": {
+    "appId": "com.murchey.handlethebill",
+    "productName": "账单比对工具",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "main.js",
+      "preload.js",
+      "src/",
+      "backEnd/**/*"
+    ],
+    "asarUnpack": [
+      "backEnd/**/*"
+    ],
+    "win": {
+      "target": [
+        "nsis",
+        "portable"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    }
+  }
+}
