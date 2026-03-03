@@ -1,0 +1,179 @@
+<html data-bs-theme="dark" class="transition-all duration-100">
+    <head>
+        <link rel="stylesheet" type="text/css" href="./lib/bootstrap.min.css">
+        <title>this is title</title>
+        <meta charset="UTF-8"/>
+    </head>
+    <body>
+        <!-- <button class="btn btn-primary btn-sm" type="button" id="showModeChangeBtn">切换显示模式</button> -->
+        <ul class="nav nav-tabs">
+            <li class="nav-item">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#handleBillSetting">待核对账单设置</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#standardBillSetting">标准账单设置</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#cmpOperationPage">比对操作台</button>
+            </li>
+            <li class="nav-item">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#mySetting">软件设置</button>
+            </li>
+        </ul>
+    <div class="tab-content">
+        
+        
+        
+        <div id="handleBillSetting" class="tab-pane fade show active">
+            <div class="alert alert-primary" role="alert">
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                请完成所有设置项之后，再点击比对操作台进行数据比对！
+            </div>
+            <div class="container">
+                <h3 class="text-center">设置待核对账单基本信息</h3>
+                <br>
+                <br>
+                <div class="mb-3 row">
+                    <div class="mb-3 row">
+                    <label for="formFile" class="form-label">选择待处理文件存在的文件夹（目录下不要有子文件夹）：</label>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="selectHandleDirBtn">选取路径</button>
+                            <input type="text" class="form-control" placeholder="输入路径或选取路径" id="handleDirPath">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">金额所在列</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="handleMoneyCol" placeholder="例如：A、B、C，不区分大小写，必须是单个字母">
+                    </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">姓名所在列</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="handleNameCol" placeholder="例如：A、B、C，不区分大小写，必须是单个字母">
+                    </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">表头起始行</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="handleHeadRow" placeholder="例如：1、2、3，必须是单个数字">
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div id="standardBillSetting" class="tab-pane fade">
+            <div class="container">
+            <br>
+            <br>
+                <h3 class="text-center">设置标准账单基本信息</h3>
+            <br>
+            <br>
+                <div class="mb-3 row">
+                    <div class="mb-3 row">
+                    <label for="formFile" class="form-label">选择标准账簿文件存在的文件夹（目录下不要有子文件夹）：</label>
+                        <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="selectStandardDirBtn">选取路径</button>
+                            <input type="text" class="form-control" placeholder="输入路径或选取路径" id="standardDirPath">
+                        </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">金额所在列</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="standardMoneyCol" placeholder="例如：A、B、C，不区分大小写，必须是单个字母">
+                    </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">姓名所在列</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="standardNameCol" placeholder="例如：A、B、C，不区分大小写，必须是单个字母">
+                    </div>
+                    </div>
+
+                    <div class="mb-3 row">
+                    <label for="staticEmail" class="col-sm-2 col-form-label">表头起始行</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" id="standardHeadRow" placeholder="例如：1、2、3，必须是单个数字">
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+        <div id="cmpOperationPage" class="tab-pane fade">
+            <div class="container">
+            <br>
+            <br>
+                <h3 class="text-center">操作台</h3>
+            <br>
+            <br>
+                <div class="container">
+                    <div class="progress"><div class="progress-bar" id="progressBar" role="progressbar" style="width: 0%;" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100">0%</div>
+                </div>
+                <br>
+                <div class="text-end">
+                    <button type="button" class="btn btn-primary" id="startCmpBtn">开始比对</button>
+                    <button type="button" class="btn btn-outline-primary" id="refreshListBtn">刷新列表</button>
+                </div>
+                <br>
+                    <div class="input-group mb-3">
+                            <button class="btn btn-outline-secondary" type="button" id="openResultDirBtn">打开对比结果文件夹</button>
+                            <input type="text" class="form-control" placeholder="对比结果存放路径" id="resultDirPath">
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col align-self-start">
+                            <p class="text-center">待比对文件列表</p>
+                            <ul class="list-group">
+                                <li class="list-group-item">An item</li>
+                                <li class="list-group-item">A second item</li>
+                                <li class="list-group-item">A third item</li>
+                                <li class="list-group-item">A fourth item</li>
+                                <li class="list-group-item">And a fifth one</li>
+                            </ul>
+                        </div>
+                        <div class="col align-self-center">
+                            <div class="col align-self-start">
+                            <p class="text-center">标准表单列表</p>
+                            <ul class="list-group">
+                                <li class="list-group-item">An item</li>
+                                <li class="list-group-item">A second item</li>
+                                <li class="list-group-item">A third item</li>
+                                <li class="list-group-item">A fourth item</li>
+                                <li class="list-group-item">And a fifth one</li>
+                            </ul>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+        </div>
+        </div>
+        
+        
+        <div id="mySetting" class="tab-pane fade">
+            <div class="container">
+            <br>
+            <br>
+                <h3 class="text-center">软件设置</h3>
+                <br>
+                <div class="text-center"><button class="btn btn-primary" id="showModeChangeBtn">切换显示模式</button></div>
+            </div>
+        </div>
+    </div>
+
+
+
+        <script src="./index.js"></script>
+        <script src="./lib/bootstrap.min.js"></script>
+    </body>
+</html>
